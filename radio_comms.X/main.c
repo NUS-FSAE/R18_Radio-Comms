@@ -14,12 +14,13 @@ uCAN_MSG canMessage;
 void main(void) {
     SYSTEM_Initialize();
     
+    //CAN config 
     CIOCONbits.CLKSEL = 1;
     CIOCONbits.ENDRHI = 1;
     CIOCONbits.TX2SRC = 0;
     CIOCONbits.TX2EN = 0; 
     
-    //LED_BLUE_SetLow();
+    //Connect to bluetooth headphone
     __delay_ms(10000);
     EUSART1_Write('R');
     EUSART1_Write('I');
@@ -30,9 +31,15 @@ void main(void) {
     
     while (1) {
         if (CAN_receive(&canMessage)) {
-            if (canMessage.frame.id == 0x640) {
-                LED_RED_SetLow();
-                __delay_ms(200);
+            if (canMessage.frame.id == 0x643) {
+                if(canMessage.frame.data0 & 0b1) {
+                    AUDIO_ON_SetLow();
+                    LED_BLUE_SetLow();
+                } else {
+                    AUDIO_ON_SetHigh();
+                    LED_BLUE_SetHigh();
+                }
+                
             }
         }
     }
