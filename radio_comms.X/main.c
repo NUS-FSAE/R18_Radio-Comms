@@ -1,18 +1,24 @@
-/*
- * File:   main.c
- * Author: FSAE
- *
- * Created on December 15, 2017, 7:18 PM
- */
-
-
 #include <xc.h>
 #include "mcc_generated_files/mcc.h";
 
-uCAN_MSG canMessage;
+bool CAN_ok = false;
+
+void CAN_timeout() {
+    //200ms timer callback function
+    if(!CAN_ok) {
+//        LED_RED_SetLow();
+//        LED_GREEN_SetHigh();
+//        LED_BLUE_SetHigh();
+    }
+}
 
 void main(void) {
+    uCAN_MSG canMessage;
+    
     SYSTEM_Initialize();
+    INTERRUPT_GlobalInterruptEnable();
+    INTERRUPT_PeripheralInterruptEnable();
+    TMR1_SetInterruptHandler(&CAN_timeout);
     
     //CAN config 
     CIOCONbits.CLKSEL = 1;
@@ -28,20 +34,29 @@ void main(void) {
     EUSART1_Write('G');
     EUSART1_Write('\n');
     EUSART1_Write('\r');
-    
-    while (1) {
+        
+    LED_RED_SetLow();
+    while (1) {   
         if (CAN_receive(&canMessage)) {
-            if (canMessage.frame.id == 0x643) {
+            CAN_ok = true;
+            if (canMessage.frame.id == 0x643) {              
+                    CAN_ok = true;
                 if(canMessage.frame.data0 & 0b1) {
-                    AUDIO_ON_SetLow();
+                //    AUDIO_ON_SetLow();
+                    LED_RED_SetHigh();
+                    LED_GREEN_SetHigh();
                     LED_BLUE_SetLow();
-                } else {
-                    AUDIO_ON_SetHigh();
+                } else if(!(canMessage.frame.data0 & 0b1)){
+                    LED_RED_SetHigh();
+                //    AUDIO_ON_SetHigh();
+                    LED_GREEN_SetLow();
                     LED_BLUE_SetHigh();
                 }
                 
             }
         }
+        CAN_ok = false;
+        TMR1_StartTimer();
     }
     
     return;
