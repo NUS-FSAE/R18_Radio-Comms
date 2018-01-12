@@ -18557,7 +18557,7 @@ TMR1H = (timer1ReloadVal >> 8);
 TMR1L = timer1ReloadVal;
 
 
-if (++CountCallBack >= 2)
+if (++CountCallBack >= 100)
 {
 
 TMR1_CallBack();

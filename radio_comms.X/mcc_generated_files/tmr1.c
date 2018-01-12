@@ -167,7 +167,7 @@ void TMR1_ISR(void)
     TMR1H = (timer1ReloadVal >> 8);
     TMR1L = timer1ReloadVal;
 
-    // callback function - called every 2th pass
+    // callback function - called every 100th pass
     if (++CountCallBack >= TMR1_INTERRUPT_TICKER_FACTOR)
     {
         // ticker function call
