@@ -14266,9 +14266,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tmr1.c: 168: TMR1L = timer1ReloadVal;
 "168
 [e = _TMR1L -> _timer1ReloadVal `uc ]
-[; ;tmr1.c: 171: if (++CountCallBack >= 2)
+[; ;tmr1.c: 171: if (++CountCallBack >= 100)
 "171
-[e $ ! >= =+ F15549 -> -> 1 `i `ui -> -> 2 `i `ui 1575  ]
+[e $ ! >= =+ F15549 -> -> 1 `i `ui -> -> 100 `i `ui 1575  ]
 [; ;tmr1.c: 172: {
 "172
 {

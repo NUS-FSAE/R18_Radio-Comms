@@ -18346,7 +18346,7 @@ void PIN_MANAGER_Initialize(void)
 # 57
 LATE = 0x00;
 LATD = 0x70;
-LATA = 0x00;
+LATA = 0x20;
 LATF = 0x00;
 LATB = 0x00;
 LATG = 0x00;
@@ -18355,14 +18355,14 @@ LATC = 0x00;
 # 68
 TRISE = 0xF7;
 TRISF = 0xFF;
-TRISA = 0xEF;
+TRISA = 0xCF;
 TRISG = 0x17;
 TRISB = 0xFB;
 TRISC = 0xFF;
 TRISD = 0x8F;
 
 # 79
-ANCON0 = 0xEF;
+ANCON0 = 0xFF;
 ANCON1 = 0x7F;
 
 # 85

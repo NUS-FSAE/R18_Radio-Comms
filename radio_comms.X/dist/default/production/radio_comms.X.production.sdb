@@ -23,9 +23,9 @@
 [v ___flmul __flmul `(d  1 e 3 0 ]
 "15 C:\Program Files (x86)\Microchip\xc8\v1.42\sources\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
-"6 C:\Users\FSAE\Desktop\Radio Comms Code\radio_comms.X\main.c
-[v _CAN_timeout CAN_timeout `(v  1 e 1 0 ]
-"15
+"14 C:\Users\FSAE\Desktop\Radio Comms Code\radio_comms.X\main.c
+[v _radio_timeout radio_timeout `(v  1 e 1 0 ]
+"21
 [v _main main `(v  1 e 1 0 ]
 "63 C:\Users\FSAE\Desktop\Radio Comms Code\radio_comms.X\mcc_generated_files/ecan.c
 [v _ECAN_Initialize ECAN_Initialize `(v  1 e 1 0 ]
@@ -55,6 +55,8 @@
 [v _TMR1_Initialize TMR1_Initialize `(v  1 e 1 0 ]
 "95
 [v _TMR1_StartTimer TMR1_StartTimer `(v  1 e 1 0 ]
+"101
+[v _TMR1_StopTimer TMR1_StopTimer `(v  1 e 1 0 ]
 "160
 [v _TMR1_ISR TMR1_ISR `(v  1 e 1 0 ]
 "181
@@ -396,7 +398,7 @@
 [v _CANSTAT CANSTAT `VEuc  1 e 1 @3950 ]
 "29414
 [v _CANCON CANCON `VEuc  1 e 1 @3951 ]
-[s S1319 . 1 `uc 1 CLKSEL 1 0 :1:0 
+[s S1370 . 1 `uc 1 CLKSEL 1 0 :1:0 
 `uc 1 . 1 0 :3:1 
 `uc 1 CANCAP 1 0 :1:4 
 `uc 1 ENDRHI 1 0 :1:5 
@@ -404,8 +406,8 @@
 `uc 1 TX2SRC 1 0 :1:7 
 ]
 "29521
-[u S1326 . 1 `S1319 1 . 1 0 ]
-[v _CIOCONbits CIOCONbits `VES1326  1 e 1 @3952 ]
+[u S1377 . 1 `S1370 1 . 1 0 ]
+[v _CIOCONbits CIOCONbits `VES1377  1 e 1 @3952 ]
 [s S563 . 1 `uc 1 EWARN 1 0 :1:0 
 `uc 1 RXWARN 1 0 :1:1 
 `uc 1 TXWARN 1 0 :1:2 
@@ -468,13 +470,34 @@
 [v _SPBRGH1 SPBRGH1 `VEuc  1 e 1 @3965 ]
 "30944
 [v _LATA LATA `VEuc  1 e 1 @3977 ]
+[s S1289 . 1 `uc 1 LATA0 1 0 :1:0 
+`uc 1 LATA1 1 0 :1:1 
+`uc 1 LATA2 1 0 :1:2 
+`uc 1 LATA3 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 LATA5 1 0 :1:5 
+`uc 1 LATA6 1 0 :1:6 
+`uc 1 LATA7 1 0 :1:7 
+]
+"30971
+[s S1298 . 1 `uc 1 LA0 1 0 :1:0 
+`uc 1 LA1 1 0 :1:1 
+`uc 1 LA2 1 0 :1:2 
+`uc 1 LA3 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 LA5 1 0 :1:5 
+`uc 1 LA6 1 0 :1:6 
+`uc 1 LA7 1 0 :1:7 
+]
+[u S1307 . 1 `S1289 1 . 1 0 `S1298 1 . 1 0 ]
+[v _LATAbits LATAbits `VES1307  1 e 1 @3977 ]
 "31046
 [v _LATB LATB `VEuc  1 e 1 @3978 ]
 "31158
 [v _LATC LATC `VEuc  1 e 1 @3979 ]
 "31270
 [v _LATD LATD `VEuc  1 e 1 @3980 ]
-[s S1343 . 1 `uc 1 LATD0 1 0 :1:0 
+[s S1329 . 1 `uc 1 LATD0 1 0 :1:0 
 `uc 1 LATD1 1 0 :1:1 
 `uc 1 LATD2 1 0 :1:2 
 `uc 1 LATD3 1 0 :1:3 
@@ -484,7 +507,7 @@
 `uc 1 LATD7 1 0 :1:7 
 ]
 "31297
-[s S1352 . 1 `uc 1 LD0 1 0 :1:0 
+[s S1338 . 1 `uc 1 LD0 1 0 :1:0 
 `uc 1 LD1 1 0 :1:1 
 `uc 1 LD2 1 0 :1:2 
 `uc 1 LD3 1 0 :1:3 
@@ -493,8 +516,8 @@
 `uc 1 LD6 1 0 :1:6 
 `uc 1 LD7 1 0 :1:7 
 ]
-[u S1361 . 1 `S1343 1 . 1 0 `S1352 1 . 1 0 ]
-[v _LATDbits LATDbits `VES1361  1 e 1 @3980 ]
+[u S1347 . 1 `S1329 1 . 1 0 `S1338 1 . 1 0 ]
+[v _LATDbits LATDbits `VES1347  1 e 1 @3980 ]
 "31382
 [v _LATE LATE `VEuc  1 e 1 @3981 ]
 "31484
@@ -756,20 +779,23 @@
 "38069
 "38069
 [v _INTCONbits INTCONbits `VES1188  1 e 1 @4082 ]
-"4 C:\Users\FSAE\Desktop\Radio Comms Code\radio_comms.X\main.c
-[v _CAN_ok CAN_ok `uc  1 e 1 0 ]
+[s S170 . 14 `uc 1 idType 1 0 `ul 1 id 4 1 `uc 1 dlc 1 5 `uc 1 data0 1 6 `uc 1 data1 1 7 `uc 1 data2 1 8 `uc 1 data3 1 9 `uc 1 data4 1 10 `uc 1 data5 1 11 `uc 1 data6 1 12 `uc 1 data7 1 13 ]
+"12 C:\Users\FSAE\Desktop\Radio Comms Code\radio_comms.X\main.c
+[u S182 . 14 `S170 1 frame 14 0 `[14]uc 1 array 14 0 ]
+[v _canMessage canMessage `S182  1 e 14 0 ]
 "56 C:\Users\FSAE\Desktop\Radio Comms Code\radio_comms.X\mcc_generated_files/tmr1.c
 [v _timer1ReloadVal timer1ReloadVal `VEui  1 e 2 0 ]
 "57
 [v _TMR1_InterruptHandler TMR1_InterruptHandler `*.37(v  1 e 2 0 ]
-"15 C:\Users\FSAE\Desktop\Radio Comms Code\radio_comms.X\main.c
+"21 C:\Users\FSAE\Desktop\Radio Comms Code\radio_comms.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-[s S170 . 14 `uc 1 idType 1 0 `ul 1 id 4 1 `uc 1 dlc 1 5 `uc 1 data0 1 6 `uc 1 data1 1 7 `uc 1 data2 1 8 `uc 1 data3 1 9 `uc 1 data4 1 10 `uc 1 data5 1 11 `uc 1 data6 1 12 `uc 1 data7 1 13 ]
-"16
-[u S182 . 14 `S170 1 frame 14 0 `[14]uc 1 array 14 0 ]
-[v main@canMessage canMessage `S182  1 a 14 38 ]
-"63
+"64
+} 0
+"101 C:\Users\FSAE\Desktop\Radio Comms Code\radio_comms.X\mcc_generated_files/tmr1.c
+[v _TMR1_StopTimer TMR1_StopTimer `(v  1 e 1 0 ]
+{
+"105
 } 0
 "113 C:\Users\FSAE\Desktop\Radio Comms Code\radio_comms.X\mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
@@ -887,13 +913,13 @@
 {
 "188
 } 0
-"6 C:\Users\FSAE\Desktop\Radio Comms Code\radio_comms.X\main.c
-[v _CAN_timeout CAN_timeout `(v  1 e 1 0 ]
-{
-"13
-} 0
-"194 C:\Users\FSAE\Desktop\Radio Comms Code\radio_comms.X\mcc_generated_files/tmr1.c
+"194
 [v _TMR1_DefaultInterruptHandler TMR1_DefaultInterruptHandler `(v  1 e 1 0 ]
 {
 "197
+} 0
+"14 C:\Users\FSAE\Desktop\Radio Comms Code\radio_comms.X\main.c
+[v _radio_timeout radio_timeout `(v  1 e 1 0 ]
+{
+"19
 } 0

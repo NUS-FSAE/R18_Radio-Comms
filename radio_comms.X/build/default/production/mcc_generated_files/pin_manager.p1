@@ -13970,9 +13970,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pin_manager.c: 58: LATD = 0x70;
 "58
 [e = _LATD -> -> 112 `i `uc ]
-[; ;pin_manager.c: 59: LATA = 0x00;
+[; ;pin_manager.c: 59: LATA = 0x20;
 "59
-[e = _LATA -> -> 0 `i `uc ]
+[e = _LATA -> -> 32 `i `uc ]
 [; ;pin_manager.c: 60: LATF = 0x00;
 "60
 [e = _LATF -> -> 0 `i `uc ]
@@ -13991,9 +13991,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pin_manager.c: 69: TRISF = 0xFF;
 "69
 [e = _TRISF -> -> 255 `i `uc ]
-[; ;pin_manager.c: 70: TRISA = 0xEF;
+[; ;pin_manager.c: 70: TRISA = 0xCF;
 "70
-[e = _TRISA -> -> 239 `i `uc ]
+[e = _TRISA -> -> 207 `i `uc ]
 [; ;pin_manager.c: 71: TRISG = 0x17;
 "71
 [e = _TRISG -> -> 23 `i `uc ]
@@ -14006,9 +14006,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pin_manager.c: 74: TRISD = 0x8F;
 "74
 [e = _TRISD -> -> 143 `i `uc ]
-[; ;pin_manager.c: 79: ANCON0 = 0xEF;
+[; ;pin_manager.c: 79: ANCON0 = 0xFF;
 "79
-[e = _ANCON0 -> -> 239 `i `uc ]
+[e = _ANCON0 -> -> 255 `i `uc ]
 [; ;pin_manager.c: 80: ANCON1 = 0x7F;
 "80
 [e = _ANCON1 -> -> 127 `i `uc ]
