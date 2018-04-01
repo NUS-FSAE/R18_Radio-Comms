@@ -42,7 +42,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S1529 . . . . ]
 "38069
 [v _INTCONbits `VS1529 ~T0 @X0 0 e@4082 ]
-"32447
+"295 mcc_generated_files/tmr0.h
+[v _TMR0_ISR `(v ~T0 @X0 0 ef ]
+"32447 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic18f66k80.h
 [s S1223 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1223 . TMR1IE TMR2IE TMR1GIE SSPIE TX1IE RC1IE ADIE PSPIE ]
 "32457
@@ -13988,8 +13990,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 164: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 166: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 168: extern __nonreentrant void _delay3(unsigned char);
-[; ;pin_manager.h: 155: void PIN_MANAGER_Initialize (void);
-[; ;pin_manager.h: 167: void PIN_MANAGER_IOC(void);
+[; ;pin_manager.h: 172: void PIN_MANAGER_Initialize (void);
+[; ;pin_manager.h: 184: void PIN_MANAGER_IOC(void);
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
 [; ;stdint.h: 38: typedef signed long int int32_t;
@@ -14053,8 +14055,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eusart1.h: 94: void EUSART1_Initialize(void);
 [; ;eusart1.h: 114: uint8_t EUSART1_Read(void);
 [; ;eusart1.h: 134: void EUSART1_Write(uint8_t txData);
-[; ;mcc.h: 71: void SYSTEM_Initialize(void);
-[; ;mcc.h: 84: void OSCILLATOR_Initialize(void);
+[; ;tmr0.h: 105: void TMR0_Initialize(void);
+[; ;tmr0.h: 134: void TMR0_StartTimer(void);
+[; ;tmr0.h: 166: void TMR0_StopTimer(void);
+[; ;tmr0.h: 202: uint16_t TMR0_ReadTimer(void);
+[; ;tmr0.h: 241: void TMR0_WriteTimer(uint16_t timerVal);
+[; ;tmr0.h: 277: void TMR0_Reload(void);
+[; ;tmr0.h: 295: void TMR0_ISR(void);
+[; ;tmr0.h: 313: void TMR0_CallBack(void);
+[; ;tmr0.h: 331: void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
+[; ;tmr0.h: 349: extern void (*TMR0_InterruptHandler)(void);
+[; ;tmr0.h: 367: void TMR0_DefaultInterruptHandler(void);
+[; ;mcc.h: 72: void SYSTEM_Initialize(void);
+[; ;mcc.h: 85: void OSCILLATOR_Initialize(void);
 "51 mcc_generated_files/interrupt_manager.c
 [v _INTERRUPT_Initialize `(v ~T0 @X0 1 ef ]
 "52
@@ -14080,30 +14093,45 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;interrupt_manager.c: 58: {
 [e :U _INTERRUPT_InterruptManager ]
 [f ]
-[; ;interrupt_manager.c: 60: if(INTCONbits.PEIE == 1 && PIE1bits.TMR1IE == 1 && PIR1bits.TMR1IF == 1)
+[; ;interrupt_manager.c: 60: if(INTCONbits.TMR0IE == 1 && INTCONbits.TMR0IF == 1)
 "60
-[e $ ! && && == -> . . _INTCONbits 1 6 `i -> 1 `i == -> . . _PIE1bits 0 0 `i -> 1 `i == -> . . _PIR1bits 0 0 `i -> 1 `i 1568  ]
+[e $ ! && == -> . . _INTCONbits 0 5 `i -> 1 `i == -> . . _INTCONbits 0 2 `i -> 1 `i 1568  ]
 [; ;interrupt_manager.c: 61: {
 "61
 {
-[; ;interrupt_manager.c: 62: TMR1_ISR();
+[; ;interrupt_manager.c: 62: TMR0_ISR();
 "62
-[e ( _TMR1_ISR ..  ]
+[e ( _TMR0_ISR ..  ]
 "63
 }
 [; ;interrupt_manager.c: 63: }
 [e $U 1569  ]
 "64
 [e :U 1568 ]
-[; ;interrupt_manager.c: 64: else
+[; ;interrupt_manager.c: 64: else if(INTCONbits.PEIE == 1 && PIE1bits.TMR1IE == 1 && PIR1bits.TMR1IF == 1)
+[e $ ! && && == -> . . _INTCONbits 1 6 `i -> 1 `i == -> . . _PIE1bits 0 0 `i -> 1 `i == -> . . _PIR1bits 0 0 `i -> 1 `i 1570  ]
 [; ;interrupt_manager.c: 65: {
 "65
 {
+[; ;interrupt_manager.c: 66: TMR1_ISR();
+"66
+[e ( _TMR1_ISR ..  ]
 "67
 }
-[e :U 1569 ]
 [; ;interrupt_manager.c: 67: }
-[; ;interrupt_manager.c: 68: }
+[e $U 1571  ]
 "68
+[e :U 1570 ]
+[; ;interrupt_manager.c: 68: else
+[; ;interrupt_manager.c: 69: {
+"69
+{
+"71
+}
+[e :U 1571 ]
+[e :U 1569 ]
+[; ;interrupt_manager.c: 71: }
+[; ;interrupt_manager.c: 72: }
+"72
 [e :UE 1567 ]
 }

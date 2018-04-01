@@ -59,8 +59,8 @@ void EUSART1_Initialize(void)
     // ABDOVF no_overflow; TXCKP async_noninverted_sync_fallingedge; BRG16 16bit_generator; WUE disabled; ABDEN disabled; RXDTP not_inverted; 
     BAUDCON1 = 0x08;
 
-    // SPEN enabled; RX9 8-bit; RX9D 0; CREN enabled; ADDEN disabled; SREN disabled; 
-    RCSTA1 = 0x90;
+    // SPEN enabled; RX9 8-bit; RX9D 0; CREN disabled; ADDEN disabled; SREN disabled; 
+    RCSTA1 = 0x80;
 
     // TX9 8-bit; TX9D 0; SENDB sync_break_complete; TXEN enabled; SYNC asynchronous; BRGH hi_speed; CSRC slave_mode; 
     TXSTA1 = 0x24;
@@ -77,6 +77,7 @@ void EUSART1_Initialize(void)
 uint8_t EUSART1_Read(void)
 {
 
+    RCSTA1bits.SREN = 1;	
     while(!PIR1bits.RC1IF)
     {
     }

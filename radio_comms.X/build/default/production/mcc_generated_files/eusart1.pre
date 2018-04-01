@@ -18423,7 +18423,7 @@ void EUSART1_Initialize(void)
 BAUDCON1 = 0x08;
 
 
-RCSTA1 = 0x90;
+RCSTA1 = 0x80;
 
 
 TXSTA1 = 0x24;
@@ -18440,6 +18440,7 @@ SPBRGH1 = 0x00;
 uint8_t EUSART1_Read(void)
 {
 
+RCSTA1bits.SREN = 1;
 while(!PIR1bits.RC1IF)
 {
 }

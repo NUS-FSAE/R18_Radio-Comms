@@ -18336,10 +18336,10 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 155 "mcc_generated_files/pin_manager.h"
+# 172 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
 
-# 167
+# 184
 void PIN_MANAGER_IOC(void);
 
 # 13 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\stdint.h"
@@ -18508,10 +18508,43 @@ uint8_t EUSART1_Read(void);
 # 134
 void EUSART1_Write(uint8_t txData);
 
-# 71 "mcc_generated_files/mcc.h"
+# 105 "mcc_generated_files/tmr0.h"
+void TMR0_Initialize(void);
+
+# 134
+void TMR0_StartTimer(void);
+
+# 166
+void TMR0_StopTimer(void);
+
+# 202
+uint16_t TMR0_ReadTimer(void);
+
+# 241
+void TMR0_WriteTimer(uint16_t timerVal);
+
+# 277
+void TMR0_Reload(void);
+
+# 295
+void TMR0_ISR(void);
+
+# 313
+void TMR0_CallBack(void);
+
+# 331
+void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
+
+# 349
+extern void (*TMR0_InterruptHandler)(void);
+
+# 367
+void TMR0_DefaultInterruptHandler(void);
+
+# 72 "mcc_generated_files/mcc.h"
 void SYSTEM_Initialize(void);
 
-# 84
+# 85
 void OSCILLATOR_Initialize(void);
 
 # 51 "mcc_generated_files/interrupt_manager.c"
@@ -18524,7 +18557,11 @@ RCONbits.IPEN = 0;
 void interrupt INTERRUPT_InterruptManager (void)
 {
 
-if(INTCONbits.PEIE == 1 && PIE1bits.TMR1IE == 1 && PIR1bits.TMR1IF == 1)
+if(INTCONbits.TMR0IE == 1 && INTCONbits.TMR0IF == 1)
+{
+TMR0_ISR();
+}
+else if(INTCONbits.PEIE == 1 && PIE1bits.TMR1IE == 1 && PIR1bits.TMR1IF == 1)
 {
 TMR1_ISR();
 }

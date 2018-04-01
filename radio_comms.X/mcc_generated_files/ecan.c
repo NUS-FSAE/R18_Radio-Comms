@@ -75,9 +75,6 @@ Mask and Filter definitions
 ........................................................
 CAN ID		Mask		Filter		Buffer
 ........................................................
-0x444		Acceptance Mask 0		Filter 0	RXB0
-0x555		Acceptance Mask 0		Filter 0	RXB0
-0x666		Acceptance Mask 0		Filter 1	RXB1
 ........................................................
 */
     
@@ -85,10 +82,10 @@ CAN ID		Mask		Filter		Buffer
     Initialize Receive Masks
 */    
 
-    RXM0EIDH = 0x00;
-    RXM0EIDL = 0x00;
-    RXM0SIDH = 0x00;
-    RXM0SIDL = 0x00;
+    RXM0EIDH = 0xFF;
+    RXM0EIDL = 0xFF;
+    RXM0SIDH = 0xFF;
+    RXM0SIDL = 0xFF;
 
     RXM1EIDH = 0xFF;
     RXM1EIDL = 0xFF;
@@ -101,13 +98,13 @@ CAN ID		Mask		Filter		Buffer
 
     RXF0EIDH = 0x00;
     RXF0EIDL = 0x00;
-    RXF0SIDH = 0x88;
-    RXF0SIDL = 0x80;
+    RXF0SIDH = 0x00;
+    RXF0SIDL = 0x00;
 
     RXF1EIDH = 0x00;
     RXF1EIDL = 0x00;
-    RXF1SIDH = 0xCC;
-    RXF1SIDL = 0xC0;
+    RXF1SIDH = 0x00;
+    RXF1SIDL = 0x00;
 
     RXF2EIDH = 0x00;
     RXF2EIDL = 0x00;

@@ -93,6 +93,20 @@
 #define RB3_SetPullup()     do { WPUBbits.WPUB3 = 1; } while(0)
 #define RB3_ResetPullup()   do { WPUBbits.WPUB3 = 0; } while(0)
 
+// get/set BEEP aliases
+#define BEEP_TRIS               TRISBbits.TRISB5
+#define BEEP_LAT                LATBbits.LATB5
+#define BEEP_PORT               PORTBbits.RB5
+#define BEEP_WPU                WPUBbits.WPUB5
+#define BEEP_SetHigh()            do { LATBbits.LATB5 = 1; } while(0)
+#define BEEP_SetLow()             do { LATBbits.LATB5 = 0; } while(0)
+#define BEEP_Toggle()             do { LATBbits.LATB5 = ~LATBbits.LATB5; } while(0)
+#define BEEP_GetValue()           PORTBbits.RB5
+#define BEEP_SetDigitalInput()    do { TRISBbits.TRISB5 = 1; } while(0)
+#define BEEP_SetDigitalOutput()   do { TRISBbits.TRISB5 = 0; } while(0)
+#define BEEP_SetPullup()      do { WPUBbits.WPUB5 = 1; } while(0)
+#define BEEP_ResetPullup()    do { WPUBbits.WPUB5 = 0; } while(0)
+
 // get/set LED_BLUE aliases
 #define LED_BLUE_TRIS               TRISDbits.TRISD4
 #define LED_BLUE_LAT                LATDbits.LATD4
@@ -126,13 +140,16 @@
 #define LED_RED_SetDigitalInput()    do { TRISDbits.TRISD6 = 1; } while(0)
 #define LED_RED_SetDigitalOutput()   do { TRISDbits.TRISD6 = 0; } while(0)
 
-// get/set RG0 procedures
-#define RG0_SetHigh()    do { LATGbits.LATG0 = 1; } while(0)
-#define RG0_SetLow()   do { LATGbits.LATG0 = 0; } while(0)
-#define RG0_Toggle()   do { LATGbits.LATG0 = ~LATGbits.LATG0; } while(0)
-#define RG0_GetValue()         PORTGbits.RG0
-#define RG0_SetDigitalInput()   do { TRISGbits.TRISG0 = 1; } while(0)
-#define RG0_SetDigitalOutput()  do { TRISGbits.TRISG0 = 0; } while(0)
+// get/set PTT aliases
+#define PTT_TRIS               TRISFbits.TRISF2
+#define PTT_LAT                LATFbits.LATF2
+#define PTT_PORT               PORTFbits.RF2
+#define PTT_SetHigh()            do { LATFbits.LATF2 = 1; } while(0)
+#define PTT_SetLow()             do { LATFbits.LATF2 = 0; } while(0)
+#define PTT_Toggle()             do { LATFbits.LATF2 = ~LATFbits.LATF2; } while(0)
+#define PTT_GetValue()           PORTFbits.RF2
+#define PTT_SetDigitalInput()    do { TRISFbits.TRISF2 = 1; } while(0)
+#define PTT_SetDigitalOutput()   do { TRISFbits.TRISF2 = 0; } while(0)
 
 // get/set RG3 procedures
 #define RG3_SetHigh()    do { LATGbits.LATG3 = 1; } while(0)
