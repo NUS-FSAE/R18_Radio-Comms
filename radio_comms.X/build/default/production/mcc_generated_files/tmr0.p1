@@ -1,6 +1,6 @@
 Version 3.2 HI-TECH Software Intermediate Code
-[v F15523 `(v ~T0 @X0 0 tf ]
-"37158 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic18f66k80.h
+[v F15529 `(v ~T0 @X0 0 tf ]
+"37158 /Applications/microchip/xc8/v1.45/include/pic18f66k80.h
 [v _T0CON `Vuc ~T0 @X0 0 e@4053 ]
 "37255
 [v _TMR0H `Vuc ~T0 @X0 0 e@4055 ]
@@ -20,14 +20,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S1529 . . . . ]
 "38069
 [v _INTCONbits `VS1529 ~T0 @X0 0 e@4082 ]
-[v F15520 `(v ~T0 @X0 0 tf ]
+[v F15526 `(v ~T0 @X0 0 tf ]
 "331 mcc_generated_files/tmr0.h
-[v _TMR0_SetInterruptHandler `(v ~T0 @X0 0 ef1`*F15520 ]
+[v _TMR0_SetInterruptHandler `(v ~T0 @X0 0 ef1`*F15526 ]
 "367
 [v _TMR0_DefaultInterruptHandler `(v ~T0 @X0 0 ef ]
 "134
 [v _TMR0_StartTimer `(v ~T0 @X0 0 ef ]
-"37164 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic18f66k80.h
+"37164 /Applications/microchip/xc8/v1.45/include/pic18f66k80.h
 [s S1467 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1467 . T0PS PSA T0SE T0CS T08BIT TMR0ON ]
 "37172
@@ -44,7 +44,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f66k80.h: 50: extern volatile unsigned char RXERRCNT @ 0xE41;
-"52 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic18f66k80.h
+"52 /Applications/microchip/xc8/v1.45/include/pic18f66k80.h
 [; ;pic18f66k80.h: 52: asm("RXERRCNT equ 0E41h");
 [; <" RXERRCNT equ 0E41h ;# ">
 [; ;pic18f66k80.h: 55: typedef union {
@@ -13962,26 +13962,32 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 168: extern __nonreentrant void _delay3(unsigned char);
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
-[; ;stdint.h: 38: typedef signed long int int32_t;
-[; ;stdint.h: 45: typedef unsigned char uint8_t;
-[; ;stdint.h: 51: typedef unsigned int uint16_t;
-[; ;stdint.h: 67: typedef unsigned long int uint32_t;
-[; ;stdint.h: 75: typedef signed char int_least8_t;
-[; ;stdint.h: 82: typedef signed int int_least16_t;
-[; ;stdint.h: 104: typedef signed long int int_least32_t;
-[; ;stdint.h: 111: typedef unsigned char uint_least8_t;
-[; ;stdint.h: 117: typedef unsigned int uint_least16_t;
-[; ;stdint.h: 136: typedef unsigned long int uint_least32_t;
-[; ;stdint.h: 145: typedef signed char int_fast8_t;
-[; ;stdint.h: 152: typedef signed int int_fast16_t;
-[; ;stdint.h: 174: typedef signed long int int_fast32_t;
-[; ;stdint.h: 181: typedef unsigned char uint_fast8_t;
-[; ;stdint.h: 187: typedef unsigned int uint_fast16_t;
-[; ;stdint.h: 206: typedef unsigned long int uint_fast32_t;
-[; ;stdint.h: 212: typedef int32_t intmax_t;
-[; ;stdint.h: 217: typedef uint32_t uintmax_t;
-[; ;stdint.h: 222: typedef int16_t intptr_t;
-[; ;stdint.h: 227: typedef uint16_t uintptr_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;tmr0.h: 105: void TMR0_Initialize(void);
 [; ;tmr0.h: 134: void TMR0_StartTimer(void);
@@ -13995,7 +14001,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tmr0.h: 349: extern void (*TMR0_InterruptHandler)(void);
 [; ;tmr0.h: 367: void TMR0_DefaultInterruptHandler(void);
 "57 mcc_generated_files/tmr0.c
-[v _TMR0_InterruptHandler `*F15523 ~T0 @X0 1 e ]
+[v _TMR0_InterruptHandler `*F15529 ~T0 @X0 1 e ]
 [; ;tmr0.c: 57: void (*TMR0_InterruptHandler)(void);
 "59
 [v _timer0ReloadVal `Vui ~T0 @X0 1 e ]
@@ -14173,7 +14179,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;tmr0.c: 156: if(TMR0_InterruptHandler)
 "156
-[e $ ! != _TMR0_InterruptHandler -> -> 0 `i `*F15523 1572  ]
+[e $ ! != _TMR0_InterruptHandler -> -> 0 `i `*F15529 1572  ]
 [; ;tmr0.c: 157: {
 "157
 {
@@ -14189,12 +14195,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 1571 ]
 }
 "162
-[v _TMR0_SetInterruptHandler `(v ~T0 @X0 1 ef1`*F15520 ]
+[v _TMR0_SetInterruptHandler `(v ~T0 @X0 1 ef1`*F15526 ]
 {
 [; ;tmr0.c: 162: void TMR0_SetInterruptHandler(void (* InterruptHandler)(void)){
 [e :U _TMR0_SetInterruptHandler ]
-[v F15547 `(v ~T0 @X0 0 tf ]
-[v _InterruptHandler `*F15547 ~T0 @X0 1 r1 ]
+[v F15553 `(v ~T0 @X0 0 tf ]
+[v _InterruptHandler `*F15553 ~T0 @X0 1 r1 ]
 [f ]
 [; ;tmr0.c: 163: TMR0_InterruptHandler = InterruptHandler;
 "163

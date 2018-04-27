@@ -89,11 +89,16 @@ void main(void) {
             setLED_Red();
         }
         if (ringing) {
-            EUSART1_Write('R');
-            EUSART1_Write('I');
+            EUSART1_Write('S');
+            EUSART1_Write('C');
+            EUSART1_Write('O');
+            EUSART1_Write(' ');
+            EUSART1_Write('O');
+            EUSART1_Write('P');
+            EUSART1_Write('E');
             EUSART1_Write('N');
-            EUSART1_Write('G');
-            EUSART1_Write('\n');
+            EUSART1_Write(' ');
+            EUSART1_Write('0');
             EUSART1_Write('\r');
             ringing = false;
         }
